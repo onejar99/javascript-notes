@@ -39,6 +39,7 @@ My notes for JavaScript.
 3. [JS Others](./notes/others.md)
 4. [JS BOM (Browser Object Model)](./notes/bom.md)
 5. [JS DOM (Document Object Model)](./notes/dom.md)
+6. [JS Magic JavaScript](./notes/magic-js.md)
 
 
 ### Coding Guide
