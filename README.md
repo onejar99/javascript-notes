@@ -48,6 +48,13 @@ My notes for JavaScript.
 3. [JS Coding Conventions](./notes/coding-conventions.md)
 
 
+## New JavaScript
+
+1. [ES6](./new-js/es6_note.md)
+2. [ES7](./new-js/es7_note.md)
+3. [ES8](./new-js/es8_note.md)
+
+
 
 ## JavaScript APIs
 
