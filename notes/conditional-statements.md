@@ -6,12 +6,12 @@
 
 ---
 
-## If-else
+## if-else
 
 As general.
 
 > * (If or IF) will generate a JavaScript error.
-> * if 判斷條件裡的運作等同 **Boolean()**
+> * if 判斷條件裡的運作等同 [Boolean()](../api/boolean-api.md)
 
 
 
@@ -21,18 +21,19 @@ As general.
 
 ### Overview
 
-Note:
+**Note:**
 
 * The switch expression is evaluated **once**.
-* case 入口:
-  * 每個 case 就像同一個隧道不同區段入口的概念，和 case 裡的值作 `===`  的比較，如果符合就進去
+* 以隧道的概念去理解 switch-case statements
+* case 入口：
+  * 每個 case 就像同一個隧道的不同區段入口，和 case 裡的值作 `===`  的比較，如果符合就進去
   * 支援 string 的比較
-  * 同樣條件的 case 可以重複設，但整個隧道的入口，只要有一個進去了，其他入口都會關閉，break出來也不會再進去
-* 進入入口後:
+  * 同樣條件的 case 可以重複設，但整個隧道的入口，只要有一個進去了，其他入口都會關閉，break 出來也不會再進去
+* 進入入口後：
   * 一旦進去了，就像進入同一個隧道
   * 除了執行自己這一個 block 的程式，還可以往下繼續執行到下一區段的程式，不被下一區段的入口檢核影響
   * 除非遇到 break，會被強制踢出隧道
-* default 是一種特殊入口:
+* default 是一種特殊入口：
   * 語法上只能放一個
   * 錯誤檢核條件是無條件，所以通常放最後
   * 就算放最前面，還是會等其他入口都檢核過，都沒符合的才進入default

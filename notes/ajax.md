@@ -11,7 +11,7 @@
 **mynote:**
 
 * Ajax 不是一種程式語言，而是一種技術或技巧：在背景端和 web server 交換資料
-* 因此可以做到和頁面loading非同步的更新：更新頁面資料時不需要 reload 整個頁面，也可以等頁面 load 完才進行，等server response的過程也可以繼續其他動作(non-blocking)
+* 因此可以做到和頁面 loading 非同步的更新：更新頁面資料時不需要 reload 整個頁面，也可以等頁面 load 完才進行，等 server response 的過程也可以繼續其他動作 (non-blocking)
 * Ajax 利用瀏覽器內建的 `XMLHttpRequest` object 去和 server 交換資料，利用 JS 和 DOM 去處理資料
 
 
@@ -33,10 +33,10 @@
 
 
 
-> AJAX is a misleading name.
+> AJAX is a misleading name.    
 > 除了 XML，也很常用 JSON 或純文字(plain text)傳遞資料
 
-> AJAX 還是可以用 Synchronous 運作，但不建議，而且 Synchronous 正從 standard 中被廢除，一些開發工具也會警告 Synchronous 用法
+> AJAX 還是可以用 Synchronous 運作，但不建議，而且 Synchronous 正從 standard 中被廢除，一些開發工具也會警告 Synchronous 用法    
 > (Synchronous XMLHttpRequest is in the process of being removed from the web standard, but this process can take many years.)
 
 
@@ -46,9 +46,9 @@
 
 ## How AJAX Works
 
-![](../figures/w3schools_ajax.gif)
+![](../../figures/w3schools_ajax.gif)
 
-Figure source: [w3schools](https://www.w3schools.com/js/pic_ajax.gif)
+Figure source: [w3schools](https://www.w3schools.com/js/js_ajax_intro.asp)
 
 
 
@@ -136,20 +136,20 @@ XMLHttpRequest.readyState 屬性會回傳一個 XMLHttpRequest 客戶端物件�
 * 也就是說 web page 跟他要存取的 XML file 必須在位同一個 server
 
 > mynote:
-> 測試：用 local html 去發 request 要遠端 server 的資料
-> 結果：Failed to load http://10.1.31.137/sms/SystemInfo: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'null' is therefore not allowed access.
-
+> * 測試：用 local html 去發 request 要遠端 server 的資料
+> * 結果：Failed to load http://10.1.31.137/sms/SystemInfo: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'null' is therefore not allowed access.
 
 
 Ref: [跨來源資源共享（CORS）| MDN](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/CORS)
 
-基於安全性考量，程式碼所發出的跨來源 HTTP 請求是受到限制的。
-例如，XMLHttpRequest 及 Fetch 皆遵守同源政策（same-origin policy）。
-這代表網路應用程式所使用的這些 API 只能請求來自和應用程式相同網域的 HTTP 資源，除非使用了 CORS 標頭。
+* 基於安全性考量，程式碼所發出的跨來源 HTTP 請求是受到限制的。
+  * 例如，XMLHttpRequest 及 Fetch 皆遵守同源政策（same-origin policy）。
+* 這代表網路應用程式所使用的這些 API 只能請求來自和應用程式相同網域的 HTTP 資源，除非使用了 CORS 標頭。
+* 跨來源資源共享（Cross-Origin Resource Sharing，簡稱 CORS）機制提供了網頁伺服器跨網域的存取控制，增加跨網域資料傳輸的安全性。
+  * 現代瀏覽器支援在 API 容器（如 XMLHttpRequest 或 Fetch）中使用 CORS，以降低跨來源 HTTP 請求的風險。
 
-跨來源資源共享（Cross-Origin Resource Sharing，簡稱 CORS）機制提供了網頁伺服器跨網域的存取控制，增加跨網域資料傳輸的安全性。
 
-現代瀏覽器支援在 API 容器（如 XMLHttpRequest 或 Fetch）中使用 CORS，以降低跨來源 HTTP 請求的風險。
+> Another solution: [JS JSON - JSONP](../notes/json.md)
 
 
 

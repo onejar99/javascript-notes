@@ -17,31 +17,26 @@
 > __Java vs. JavaScript__
 >
 > * They are completely different languages, both in concept and design.
-> * JavaScript was invented by Brendan Eich in 1995, and became an ECMA standard in 1997. ECMA-262 is the official name. ECMAScript 6 (released in June 2015) is the latest JavaScript version.
+> * JavaScript was invented by Brendan Eich in 1995, and became an ECMA standard in 1997. ECMA-262 is the official name (a.k.a. **ECMAScript**).
 
 -----
 
-## A Simple example
+## A Simple Example
 
 ````html
 <!DOCTYPE html>
 <html>
-<script>
-var dateStr = Date();
-alert("dateStr=["+dateStr+"]"); //dateStr=[Tue Sep 13 2016 17:40:47 GMT+0800 (台北標準時間)]
-</script>
 <body>
-
 <h1>My First JavaScript</h1>
-
-<button type="button"
-onclick="document.getElementById('demo').innerHTML = 'ttt' ">
-Click me to display Date and Time.</button>
-
+<button type="button" onclick="document.getElementById('demo').innerHTML = new Date() ">
+	Click me to display Date and Time.
+</button>
 <p id="demo"></p>
-
 </body>
 </html>
+<script>
+alert('Welcome!');
+</script>
 ````
 
 ----

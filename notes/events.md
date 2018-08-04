@@ -1,6 +1,6 @@
 # JS Events
 
-## JS React to HTML Events
+## JS Can React to HTML Events
 
 * HTML events are "things" that happen to HTML elements.
 * JavaScript lets you execute code when events are detected.

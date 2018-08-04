@@ -16,22 +16,24 @@
 > * if returned in `catch` and `finally` block in the same time, **returned by finally comes first**.
 
 ````js
+var myFunc = function(){
+    try{
+        console.log('myFunc: exec try');
+        throw new Error();
+    } catch(e) {
+        console.log('myFunc: exec catch');
+        return "Catch";
+    } finally {
+        console.log('myFunc: exec finally');
+        return "Finally";
+    }
+    console.log('myFunc: to be ended.');
+    return "Done";
+};
+
 var x = myFunc();
-    console.log('x=', x);
-    var myFunc = function(){
-        try{
-            console.log('myFunc: exec try');
-            throw new Error();
-        }catch(e){
-            console.log('myFunc: exec catch');
-            return "Catch";
-        }finally{
-            console.log('myFunc: exec finally');
-            return "Finally";
-        }
-        console.log('myFunc: to be ended.');
-        return "Done";
-    };
+console.log('x=', x);
+
 
 //********* result ***********
 //myFunc: exec try
@@ -41,22 +43,23 @@ var x = myFunc();
 ````
 
 ````js
+var myFunc = function(){
+    try{
+        console.log('myFunc: exec try');
+        throw new Error();
+    } catch(e) {
+        console.log('myFunc: exec catch');
+        return "Catch";
+    } finally {
+        console.log('myFunc: exec finally');
+        //return "Finally";
+    }
+    console.log('myFunc: to be ended.');
+    return "Done";
+};
+
 var x = myFunc();
-    console.log('x=', x);
-    var myFunc = function(){
-        try{
-            console.log('myFunc: exec try');
-            throw new Error();
-        }catch(e){
-            console.log('myFunc: exec catch');
-            return "Catch";
-        }finally{
-            console.log('myFunc: exec finally');
-            //return "Finally";
-        }
-        console.log('myFunc: to be ended.');
-        return "Done";
-    };
+console.log('x=', x);
 
 //********* result ***********
 //myFunc: exec try
@@ -149,47 +152,48 @@ JavaScript will actually create an **Error object** with two properties: *name* 
 
 Six different values can be returned by the error name property:
 
-| Error Name     | Description |
+| Error Name     | Description                                  |
+| -------------- | ---------------------------------------------|
 | EvalError      | An error has occurred in the eval() function |
-| RangeError     | A number "out of range" has occurred |
-| ReferenceError | An illegal reference has occurred |
-| SyntaxError    | A syntax error has occurred |
-| TypeError      | A type error has occurred |
-| URIError       | An error in encodeURI() has occurred |
+| RangeError     | A number "out of range" has occurred         |
+| ReferenceError | An illegal reference has occurred            |
+| SyntaxError    | A syntax error has occurred                  |
+| TypeError      | A type error has occurred                    |
+| URIError       | An error in encodeURI() has occurred         |
 
 
 ### 1. EvalError
 
-> Newer versions of JavaScript does not throw any `EvalError`. Use `SyntaxError` instead.
+> Newer versions of JavaScript does **not** throw any `EvalError`. Use `SyntaxError` instead.
 
 
 ### 2. RangeError
 
-e.g. num.toPrecision(500);
+e.g. `num.toPrecision(500);`
 
 
 ### 3. Reference Error
 
-e.g. a variable that has not been declared:
+e.g. A variable that has not been declared:
 
 
 ### 4. Syntax Error
 
-e.g. eval("alert('Hello)");
+e.g. `eval("alert('Hello)");`
 
 
 ### 5. Type Error
 
-> if you use a value that is outside the range of expected types:
+> If you use a value that is outside the range of expected types:
 
-e.g. num.toUpperCase();
+e.g. `num.toUpperCase();`
 
 
 ### 6. URI Error
 
-> use illegal characters in a URI function
+> Use illegal characters in a URI function
 
-e.g. decodeURI("%%%");
+e.g. `decodeURI("%%%");`
 
 
 
@@ -198,5 +202,6 @@ e.g. decodeURI("%%%");
 ## Non-Standard Error Object Properties
 
 Mozilla and Microsoft defines some non-standard error object properties.
+
 **Do not use** these properties in public web sites. They will not work in all browsers.
 

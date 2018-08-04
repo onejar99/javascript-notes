@@ -59,10 +59,9 @@ console.log(i); //10
   * 如果是 "Strict Mode" ，就不會自動產生 global 變數
 
 
-> Warning
-> __Do NOT create global variables unless you intend to.__
-> Your global variables (or functions) can overwrite window variables (or functions).
-> Any function, including the window object, can overwrite your global variables and functions.
+> Warning: **Do NOT create global variables unless you intend to.**
+> * Your global variables (or functions) can overwrite window variables (or functions).
+> * Any function, including the window object, can overwrite your global variables and functions.
 
 
 

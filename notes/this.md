@@ -17,9 +17,9 @@
 ## Tips for `this`
 
 公式：
-1. `物件.函式();`=> 函式內的 `this`指向該物件
-2. `函式();`  => 函式內的 `this` 指向全域物件
-3. `物件A.函式.call(物件B, arg1, arg2, ...);` => 函式內的 `this` 指向物件B (若物件B為 null，則指向全域物件)
+1. `object.method();`=> 函式內的 `this` 指向該物件
+2. `method();`  => 函式內的 `this` 指向全域物件
+3. `objA.method.call(objB, arg1, arg2, ...);` => 函式內的 `this` 指向物件B (若物件B為 null，則指向全域物件)
 
 
 
@@ -29,13 +29,13 @@ Notes:
 * 如果呼叫函數的前方沒有物件，則函數內 `this` 就指向全域物件
   * 瀏覽器內：全域物件為 window 物件(HTML page 本身)
   * Node.js：全域物件為 GLOBAL 物件
-  * 例外：在使用 node.js 時，若使用 node file.js 這樣的方式執行 js 檔，並不會讓宣告的全域變數掛在全域物件上(意指會利用 function 將code整個包起來執行)，故 Example 1-B 的 輸出應為 undefined
-* 利用 call() 與 apply() 可以指派 this 指向的物件
+  * 例外：在使用 node.js 時，若使用 node file.js 這樣的方式執行 js 檔，並不會讓宣告的全域變數掛在全域物件上(意指會利用 function 將 code 整個包起來執行)，故 Example 1-B 的輸出應為 undefined
+* 利用 `call()` 與 `apply()` 可以指派 this 指向的物件
 
 
 ------
 
-##Examples
+## Examples
 
 ### Example 1: Basic
 
@@ -71,6 +71,7 @@ var f = function(){
 };
 
 f();
+
 // ==== result:
 // 10
 ````
@@ -85,16 +86,17 @@ var x = 10;
 var obj = {
 	x: 20,
 	f: function(){
-		console.log(this.x); //Output#1
-		var foo = function(){ console.log(this.x); } //Output#2
+		console.log('Output 1: ', this.x);
+		var foo = function(){ console.log('Output 2: ', this.x); }
 		foo(); // "this" be treated as the Global object
 	}
 };
 
 obj.f();
+
 // ==== result:
-// 20
-// 10
+// Output 1:  20
+// Output 2:  10
 ````
 
 
@@ -106,17 +108,18 @@ var x = 10;
 var obj = {
 	x: 20,
 	f: function(){
-		console.log(this.x); //Output#1
-		var that = this; // use a variable to store the "this" object 
-        var foo = function(){ console.log(that.x); } //Output#2
-		foo();
+		console.log('Output 1: ', this.x);
+        var me = this; // use a variable to store the "this" object
+		var foo = function(){ console.log('Output 2: ', me.x); }
+		foo(); // "this" be treated as the Global object
 	}
 };
 
 obj.f();
+
 // ==== result:
-// 20
-// 20
+// Output 1:  20
+// Output 2:  20
 ````
 
 
@@ -135,14 +138,15 @@ var obj = {
 };
 obj.f(); //Output#1
 
-var fOut = obj.f;
-fOut(); //Output#2
+var fFunc = obj.f;
+fFunc(); //Output#2
 
 var obj2 = {
 	x: 30,
 	f: obj.f
 }
 obj2.f(); //Output#3
+
 // ==== result:
 // 20
 // 10
@@ -165,6 +169,7 @@ var obj2 = {
 };
 
 obj1.f.call(obj2);
+
 // ==== result:
 // 30
 ````
@@ -181,7 +186,7 @@ function Hero(n){
     this.exp = n;
 };
 Hero(50);
-var hero = new Hero(100); 
+var hero = new Hero(100);
 console.log(exp); //output#1
 console.log(hero); //output#2
 
@@ -210,14 +215,14 @@ var hero = {
 	act1: function(cbk){
 		return cbk();
 	},
-    act2: function(cbk){
+	act2: function(cbk){
 		return cbk.call(this);
 	}
 };
 
-console.log( sayHi() );				// Global Hi
-console.log( hero.act1(sayHi) );	// Global Hi
-console.log( hero.act2(sayHi) );	// Hero Hi
+console.log( sayHi() );           // Global Hi
+console.log( hero.act1(sayHi) );  // Global Hi
+console.log( hero.act2(sayHi) );  // Hero Hi
 ````
 
 

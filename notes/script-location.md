@@ -19,14 +19,14 @@ In HTML, JavaScript statements are "instructions" to be "executed" by the web br
 
 ```html
 <script>
-function myFunction() {
-document.getElementById("demo").innerHTML = "Paragraph changed.";
+function myFunc() {
+	alert('Hi');
 }
 </script>
-<button type="button" onclick="myFunction()">Try it</button>
+<button type="button" onclick="myFunc()">Try it</button>
 ```
 * JavaScript 放在 HTML 中的 `<body>` 或 `<head>` sections 裡都行，沒有個數限制
-> mynote: 實驗，即使放在`<html>`之外也能work(on Chrome)
+	* 即使放在 `<html>` 之外也能 work (on Chrome)
 
 * Keeping all code in one place, is always a good habit.
   * It is a good idea to __place scripts at the bottom of the `<body>` element. This can improve page load__, because script compilation can slow down the display.

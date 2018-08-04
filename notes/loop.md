@@ -55,7 +55,7 @@ Example 2: when statement-condition is a value, Boolean() is true
 
 ````js
 var exeCnt = 0;
-for(i=0 ; 'john' ; i++){
+for(i = 0 ; 'john' ; i++){
   console.log(`i=${i}`);
     exeCnt++;
     // fuse
@@ -119,7 +119,7 @@ Example 4: *statement-start* 和 *statement-each-time-end* 可以執行多個語
 
 ````js
 var exeCnt = 0;
-for(i=0,j=1 ; ; i++,j*=2){
+for(i=0, j=1  ;  ;  i++, j*=2){
   console.log(`i=${i}, j=${j}`);
     exeCnt++;
     // fuse
@@ -142,15 +142,15 @@ console.log('end');
 Example 5: *statement-condition* 也可以多個，但只以最後一個結果為準
 
 ````js
-//result is true
+// result is true
 for(; 1>2, 10>9 ;){...}
 for(; false, true ;){...}
 
-//result is false
+// result is false
 for(; true, false ;){...}
-for(; false,false ;){...}
+for(; false, false ;){...}
 for(; false && true ;){...}
-for(; false||true, true&&false ;){...}
+for(; false || true, true && false ;){...}
 ````
 
 
@@ -159,7 +159,7 @@ Example 6:  3個 statement 皆可省略，但分號[;]不可省略，statement-c
 
 ````js
 var exeCnt = 0;
-var i=0, j=0;
+var i = 0, j = 0;
 for(;;){
   console.log(`i=${i}, j=${j}`);
     exeCnt++;
@@ -189,31 +189,24 @@ The JavaScript for/in statement loops through the properties of an object:
 
 
 > NOTE:
-> for-in 裡宣告的變數代表 key，而非整個元素
-> 所以用在陣列，r是index；用在 Object，r是property名稱
+> * for-in 裡宣告的變數代表 key，而非整個元素
+> * 所以用在陣列，r 是 index；用在 Object，r 是 property 名稱
 
 ````JS
-var ColDefs = [
-  {dataIndex: "memberName", flex: "1", text: "Member"},
-  {dataIndex: "2", flex: "1", text: "Proj 2"},
-  {dataIndex: "5", flex: "1", text: "Proj 5"},
-  {dataIndex: "11", flex: "1", text: "Proj 11"}
+var people = [
+  {name: 'John', age: 18},
+  {name: 'Rubio', age: 26},
+  {name: 'Lin', age: 28},
 ];
 
-console.log(ColDefs);
-
-for(var r in ColDefs){
-    console.log(ColDefs[r]);
+for(var r in people){
+    console.log(people[r]);
 }
-````
 
-Result:
-
-````
-{dataIndex: "memberName", flex: "1", text: "Member"}
-{dataIndex: "2", flex: "1", text: "Proj 2"}
-{dataIndex: "5", flex: "1", text: "Proj 5"}
-{dataIndex: "11", flex: "1", text: "Proj 11"}
+//******* Result *********
+//{name: "John", age: 18}
+//{name: "Rubio", age: 26}
+//{name: "Lin", age: 28}
 ````
 
 
@@ -224,48 +217,46 @@ for-in 後面的 condition 只會執行一次:
 var ary = [1, 2, 3, 4];
 console.log(ary);
 
-function getAry(){
-  console.log('go getAry()');
-  ary.push(99);
-    return ary;
-}
-
 var exeCnt = 0;
-for(var i in getAry()){
+for( var i in getAry() ){
     console.log(`i=[${i}] ary[i]=${ary[i]}`);
     // fuse
     if(exeCnt > 10) break;
 }
 console.log('end');
 
-//******result*********
-//(4) [1, 2, 3, 4]
-//go getAry()
-//i=[0] ary[i]=1
-//i=[1] ary[i]=2
-//i=[2] ary[i]=3
-//i=[3] ary[i]=4
-//i=[4] ary[i]=99
-//end
+function getAry(){
+  console.log('go getAry()');
+  ary.push(99);
+  return ary;
+}
+
+/******result*********
+(4) [1, 2, 3, 4]
+go getAry()
+i=[0] ary[i]=1
+i=[1] ary[i]=2
+i=[2] ary[i]=3
+i=[3] ary[i]=4
+i=[4] ary[i]=99
+end
+********************/
 ````
+
 
 ## for-of (ES6)
 
 > NOTE:
-> for-of 無法用於 Object，只能用於陣列 (必須是 iterable)
+> * 和 for-in 類似，差別在於 for-in 取的值是 key，for-of 取的值是 value
+> * 後面的 condition 一樣只會執行一次
+> * for-of 無法用於 Object，只能用於陣列 (必須是 iterable)
 
 ````js
 var ary = [1, 2, 3, 4];
 console.log(ary);
 
-function getAry(){
-  console.log('go getAry()');
-  ary.push(99);
-    return ary;
-}
-
 var exeCnt = 0;
-for (let value of getAry()) {
+for ( let value of getAry() ) {
     value += 1;
     console.log(value);
 
@@ -273,8 +264,13 @@ for (let value of getAry()) {
     if(exeCnt > 10) break;
 }
 console.log('end');
-
 console.log(ary);
+
+function getAry(){
+  console.log('go getAry()');
+  ary.push(99);
+  return ary;
+}
 
 /******result*********
 (4) [1, 2, 3, 4]
@@ -299,8 +295,8 @@ end
 Syntax Template:
 
 ````
-while (condition) {
-    code block to be executed
+while (**condition**) {
+    // code block to be executed
 }
 ````
 
@@ -316,21 +312,21 @@ mynote:
 
 
 
-Example 1: condition每次都會執行
+Example 1: condition 每次都會執行
 
 ````js
 var exeCnt = 0;
-var startNum = 1; // PS: 如果初始值是0，因為return 0回去，while-loop會進不去
+var startNum = 1; // PS: 如果初始值是 0，因為 return 0 回去，while-loop 會進不去
 
 function getStartNum(){
   return startNum++;
 }
 
-while(getStartNum()){
+while( getStartNum() ){
   console.log(`exeCnt=${exeCnt} startNum=${startNum}`);
-    exeCnt++;
-    // fuse
-    if(exeCnt > 5) break;
+  exeCnt++;
+  // fuse
+  if(exeCnt > 5) break;
 }
 console.log('end');
 
@@ -346,15 +342,15 @@ console.log('end');
 
 
 
-Example 2: condition可以放多個，以最後一個的結果為準 
+Example 2: condition 可以放多個，以最後一個的結果為準
 
 ````js
 var exeCnt = 0;
-while(false, "john"){
+while( false, "john" ){
   console.log(`exeCnt=${exeCnt}`);
-    exeCnt++;
-    // fuse
-    if(exeCnt > 5) break;
+  exeCnt++;
+  // fuse
+  if(exeCnt > 5) break;
 }
 console.log('end');
 
@@ -370,11 +366,11 @@ console.log('end');
 
 ````js
 var exeCnt = 0;
-while("john", false){
+while( "john", false ){
   console.log(`exeCnt=${exeCnt}`);
-    exeCnt++;
-    // fuse
-    if(exeCnt > 5) break;
+  exeCnt++;
+  // fuse
+  if(exeCnt > 5) break;
 }
 console.log('end');
 
@@ -408,8 +404,8 @@ As general.
 ## Labels
 
 * mynote:
-  * 幫一段 code-block 標籤，可以用 `break <labelname>` 跳過不要執行的部分，做到 do-while(false){break;} 的效果
-  * 不知道 continue labelname; 的應用場合
+  * 幫一段 code-block 標籤，可以用 `break <labelname>` 跳過不要執行的部分，做到 `do-while(false){break;}` 的效果
+  * 不知道 `continue labelname;` 的應用場合
 
 > * The `continue` statement (with or without a label reference) can only be used to **skip one loop iteration**.
 > * The `break` statement, without a label reference, can only be used to **jump out of a loop or a switch**.

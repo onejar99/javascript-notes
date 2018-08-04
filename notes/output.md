@@ -9,7 +9,7 @@
 * JavaScript does NOT have any built-in print or display functions. -> __??__
 * JavaScript can "display" data in different ways:
 
-| using            | note                             |                                       |
+| Way              | Description                      | Remark                                |
 | ---------------- | -------------------------------- | ------------------------------------- |
 | window.alert()   | Writing into an alert box        | mynote: alert() 和 window.alert() 似乎沒差 |
 | document.write() | Writing into the HTML output     | should only be used for testing       |

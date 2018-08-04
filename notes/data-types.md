@@ -12,7 +12,8 @@ This means that the same variable can be used as different types.
 
 mynote: 動態型別不等於弱型別，但JS是動態型別+弱型別
 
-EX:
+Example:
+
 ````js
 var x; // Now x is undefined
 var x = 5; // Now x is a Number
@@ -24,13 +25,13 @@ var x = "John"; // Now x is a String
 ## JS Primitive Data & Complex Data
 
 * 一個 __primitive data__ 的 value 是一個單一簡單的值，沒有額外的 properties 或 methods
-* `typeof` operator 會回傳以下 primitive types:
+* `typeof` operator 會回傳的 primitive types 有 :
    * `string`
    * `number`
    * `boolean`
    * `undefined`
    * (note: 應該還要有一個 `null`，可視為目前 JavaScript 的 bug)
-* `typeof` operator 會回傳以下 complex types:
+* `typeof` operator 會回傳的 complex types 有 :
    * `function`
    * `object`
 
@@ -55,7 +56,7 @@ JavaScript variables can hold many data types: numbers, strings, arrays, objects
 | Number 數字 *                        | var length = 16;                         |                                          | "number"                                 |
 | String 字串 *                        | var lastName = "Johnson";                |                                          | "string"                                 |
 | Boolean 布林 *                       | var bool = true;                         |                                          | "boolean"                                |
-| Undefined *                        | var person; <br/>var person = undefined; | undefined<br/> (in F12 mode, it will exception) | "undefined"                              |
+| Undefined *                        | var person; <br/>var person = undefined; | undefined                                  | "undefined"                              |
 | Null 物件(Object)                    | var person = null;                       | null                                     | "object"                                 |
 | Array 陣列                           | var cars = ["Saab", "Volvo", "BMW"];     | (3) ["Saab", "Volvo", "BMW"]             | "object" <br/>(because in JavaScript arrays are objects.) |
 | Date 日期                            | var d = Date()                           | "Wed Mar 25 2015 11:13:00 GMT+0800 (台北標準時間)" | "object"                                 |
@@ -75,10 +76,10 @@ JavaScript 的數字只存成一種 64 bit 的浮點數，不像其他語言定�
 > Numbers can be written with, or without decimals.
 
 ````js
-var x=15.00; // Written with decimals
-var y=9; // Written without decimals
-console.log(x/y); //1.6666666666666667
-console.log(x%y); //6
+var x = 15.00; // Written with decimals
+var y = 9; // Written without decimals
+console.log( x / y ); //1.6666666666666667
+console.log( x % y ); //6
 ````
 
 
@@ -89,13 +90,13 @@ console.log(x%y); //6
 * 指定一個 `number` 是不合法的數字 (所以 type 還是 `number`)
 
 ````js
-console.log(NaN); //NaN
-console.log(typeof NaN); //"number"
-console.log(100 / "Apple"); //NaN
-console.log(100 + NaN);//NaN
-console.log("100" + NaN);//"100NaN"
-console.log( isNaN( 100 / "Apple") ); //true
-console.log( isNaN( 100 / "10") );  //false
+console.log( NaN ); //NaN
+console.log( typeof NaN ); //"number"
+console.log( 100 / "Apple" ); //NaN
+console.log( 100 + NaN );//NaN
+console.log( "100" + NaN );//"100NaN"
+console.log( isNaN( 100 / "Apple" ) ); //true
+console.log( isNaN( 100 / "10" ) );  //false
 ````
 
 
@@ -107,9 +108,9 @@ console.log( isNaN( 100 / "10") );  //false
 > *  `Infinity` 仍是合法的數字，和 `NaN` 不同
 
 ````js
-console.log(Infinity); //Infinity
-console.log(-Infinity); //-Infinity
-console.log(typeof Infinity); //"number"
+console.log( Infinity ); //Infinity
+console.log( -Infinity ); //-Infinity
+console.log( typeof Infinity ); //"number"
 console.log( 2 / "Apple" ); //NaN
 ````
 
@@ -190,10 +191,10 @@ console.log( "100" + "10" ); //"10010" (here "+" is used to concatenate strings,
 >    - 因為某些 JavaScript versions 會把 0 開頭的數字直譯為八進制
 
 ````js
-var myNumber = 128;
-console.log( myNumber.toString(16) );  // 80
-console.log( myNumber.toString(8) );   // 200
-console.log( myNumber.toString(2) );   // 10000000
+var myNumber = 165;
+console.log( myNumber.toString(16) );  // "a5"
+console.log( myNumber.toString(8) );   // "245"
+console.log( myNumber.toString(2) );   // "10100101"
 ````
 
 
@@ -208,7 +209,7 @@ console.log(0xFF); //255
 
 ### 7. Precision (精度)
 
-> * **整數**準確度到15位數
+> * **整數** ：準確度到15位數
 
 ````js
 //Integers (numbers without a period or exponent notation) are accurate up to 15 digits.
@@ -219,7 +220,7 @@ console.log( "d9_18=", 999999999999999999 ); //d9_18= 1000000000000000000
 ````
 
 
-> * **浮點數**運算非100%精準
+> * **浮點數** ：運算非 100% 精準
 > * 解決法：**用乘除避開浮點數間的運算**
 
 ````js
@@ -239,9 +240,10 @@ console.log( (0.2 * 10 + 0.1 * 10) / 10 ); //0.3
 > * 儲存原理如下：
 
 |              | Value (aka Fraction/Mantissa) | Exponent | Sign  |
-| :----------- | ----------------------------- | -------- | ----- |
-| bit legnth   | 52 bits                       | 11 bits  | 1 bit |
+| ------------ | ----------------------------- | -------- | ----- |
 | bit position | 0~51                          | 52~63    | 63    |
+| bit legnth   | 52 bits                       | 11 bits  | 1 bit |
+
 
 
 
@@ -253,7 +255,7 @@ console.log( (0.2 * 10 + 0.1 * 10) / 10 ); //0.3
 
 2. 用單引號或雙引號都可以，只要成對即可
 
-EX:
+Example:
 
 ````js
 var carName = "Volvo XC60"; // Using double quotes
@@ -275,7 +277,7 @@ console.log('ab\'c');
 
 4. 過長字串的換行方式 (break up a long string)
 
-EX:
+Example:
 
 ````js
 // 1. safer way
@@ -330,19 +332,17 @@ OPQR STUV WXYZ";
 
 
 
-1. Time zone：有 3 種時區表示：
-
-- Local time (browser's time zone)
-- UTC (Universal Time Coordinated)
-- GMT (Greenwich Mean Time)
-
-> UTC is the same as GMT
+2. Time zone：有 3 種時區表示：
+  - Local time (browser's time zone)
+  - UTC (Universal Time Coordinated)
+  - GMT (Greenwich Mean Time)
+  > UTC is the same as GMT
 
 
 
-1. 在 getting 或 setting 時，如果沒有指定時區，基本上就是以瀏覽器的時區為準
+3. 在 getting 或 setting 時，如果沒有指定時區，基本上就是以瀏覽器的時區為準
 
-EX:
+Example:
 
 ```js
 var d = new Date();
@@ -357,8 +357,6 @@ var d = new Date("2015-03-25"); //(ISO Date, The International Standard)
 
 ## Arrays
 
-1. 用中括號表示，裡面的成員用逗號分隔
-
 Example:
 
 ````js
@@ -370,27 +368,28 @@ document.getElementById("demo").innerHTML = cars[10]; //undefined
 ````
 
 
+1. 用中括號表示，裡面的成員用逗號分隔
+
+
 
 2. 同一個陣列可以放不同型別的物件 e.g. object, function, string, number, array, ...
 
 
 
 3. In JavaScript, **arrays** always use **numbered indexes**.
-
-> Arrays use **numbers** to access its "**elements**"
-> Objects use **names** to access its "**members**"
-
+  > * Arrays use **numbers** to access its "**elements**"
+  > * Objects use **names** to access its "**members**"
 
 
-4. **Avoid using new Array()!! Use [] instead.**
+
+4. **Avoid using `new Array()`!! Use `[]` instead.**
 
 
 There are 2 ways to create arrays:
+  * Way 1: using the array literal method (`[]`)
+  * Way 2: using the keyword `new` (`new Array()`)
 
-* Way 1: using the array literal method (`new Array()`)
-* Way 2: using the keyword `new` (`[]`)
-
-> Way 1 & 2 do exactly the same.
+  > Way 1 & 2 do exactly the same.
 
 ```js
 var cars = ["Saab", "Volvo", "BMW"]; // way1: array literal method.
@@ -399,17 +398,18 @@ var cars = new Array("Saab", "Volvo", "BMW"); // way2: using keyword **new**
 
 
 > *Note: Why not using new Array()?*
+>
 > 1. There is no need to use new Array(). For simplicity, readability and execution speed.
 > 2. **It can also produce some unexpected results:**
 
 ````js
 var ary1 = new Array(10, 100);
-console.log(ary1);			// [10, 100]
-console.log(ary1.length);	// 2
+console.log(ary1);             // [10, 100]
+console.log(ary1.length);      // 2
 
 var ary2 = new Array(10);
-console.log(ary2);			// [empty × 10]
-console.log(ary2.length);	// 10
+console.log(ary2);             // [empty × 10]
+console.log(ary2.length);      // 10
 ````
 
 
@@ -425,31 +425,32 @@ console.log(ary2.length);	// 10
 以 __object literal__ 方式去宣告一個 object (相當於 "new" 的動作)
 
 * 用大括號表示
-* 裡面的 __屬性__ (properties)用__名值對(name:value pairs)__表示
+* 裡面的 __屬性(properties)__ 用 __名值對(name-value pairs)__ 表示
 * 多個屬性以逗號 (comma) 分隔
 * 宣告完後，還是可以再增加 properties 進去
 
 Example:
 
 ````js
+// object literal
 var person = {
   firstName : "John",
   lastName : "Doe",
   age : 50,
   eyeColor : "blue"
-}; //object literal
+};
 
-document.getElementById("demo").innerHTML = person.firstName + " is " + person.age + " years old."; // John is 50 years old.
-document.getElementById("demo").innerHTML = person; //[object Object]
+console.log( person.firstName + " is " + person.age + " years old." ); // John is 50 years old.
+console.log( person.toString() ); //[object Object]
+console.log( person ); // {firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue"}
 
-console.log(person); // {firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue"}
 person.address = "Mars Rd. 123";
-console.log(person); //{firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue", address: "Mars Rd. 123"}
+console.log( person ); //{firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue", address: "Mars Rd. 123"}
 ````
 
 
 
-###2. Object Properties
+### 2. Object Properties
 
 存取 property 的語法:
 
@@ -460,7 +461,7 @@ var person = {
 
 person.firstName;     //"John"
 person["firstName"];  //"John"
-person[firstName];    // X (doesn't work)
+// person[firstName];    // X (not work)
 ````
 
 
@@ -481,12 +482,11 @@ var person = {
   }
 };
 
-document.getElementById("demo").innerHTML = person.firstName; //"John"
-document.getElementById("demo").innerHTML = person["firstName"]; //"John"
-document.getElementById("demo").innerHTML = person[firstName]; // X (doesn't work)
-
-document.getElementById("demo").innerHTML = person.getFullName; //"function (){ return this.firstName + " " + this.lastName; }" (return the function definition)
-document.getElementById("demo").innerHTML = person.getFullName(); //"John Smith"
+console.log( person.firstName ); //"John"
+console.log( person["firstName"] ); //"John"
+// console.log( person[firstName] ); // X (not work)
+console.log( person.getFullName ); // ƒ (){ return this.firstName + " " + this.lastName; }
+console.log( person.getFullName() ); //"John Smith"
 ```
 
 
@@ -500,7 +500,7 @@ document.getElementById("demo").innerHTML = person.getFullName(); //"John Smith"
 * 物件是 `property` 和 `method` 的容器
 * 用物件實字來定義物件 (You define (and create) a JavaScript object with an object literal) :
 
-EX:
+Example:
 
 ````js
 var car = {type:"Fiat", model:"500", color:"white"}; //property(e.g.type), property value(e.g."Fiat")
@@ -510,7 +510,7 @@ var car = {type:"Fiat", model:"500", color:"white"}; //property(e.g.type), prope
 
 ### 5. Constructor Property
 
-The *constructor property* returns the *constructor function* for all JavaScript variables.
+The **constructor property** returns the **constructor function** for all JavaScript variables.
 
 ​````js
 console.log("John".constructor);                // Returns function String()  {[native code]}
@@ -525,7 +525,7 @@ console.log(null.constructor);                  // X (Cannot read property 'cons
 ````
 
 
-Date/Array 物件的型別無法用原生 `typeof`判斷，可以用 *constructor property* 去自訂函數做到：
+Date/Array 物件的型別無法用原生 `typeof` 運算子判斷，可以用 **constructor property** 去自訂函數做到：
 
 ````js
 function isArray(myArray) {
@@ -556,7 +556,7 @@ function isDate(myDate) {
 * 沒有值的變數，會擁有一個值叫 `undefined`，typeof 也是 `undefined` (In JavaScript, a variable without a value, has the value undefined. The typeof is also undefined.)
 * 任何 JS 變數可以藉由賦值 `undefined` 來清空值
 
-EX:
+Example:
 
 ````js
 var name = ""; //empty string, value is "", type is string)
@@ -570,11 +570,11 @@ name = undefined; // Value is undefined, type is undefined
 
 JavaScript 的 Null 是個物件，而非 null (可視為 JavaScript 的一個 bug)
 
-> In JavaScript null is "nothing". 
-> It is supposed to be something that doesn't exist.
-> Unfortunately, in JavaScript, the data type of null is an object.
-> You can consider it a bug in JavaScript that typeof null is an object.
-> It should be null.
+> In JavaScript null is "nothing".   
+> It is supposed to be something that doesn't exist.    
+> Unfortunately, in JavaScript, the data type of null is an object.    
+> You can consider it a bug in JavaScript that typeof null is an object.    
+> It should be null.    
 
 
 
@@ -626,13 +626,13 @@ null === undefined // false
 
 ---
 
-## Do not Declare Primitive as Objects
+## Do Not Declare Primitive as Objects
 
 __Avoid String, Number, and Boolean objects.__
 
 * When a JavaScript variable is declared with the keyword __"new"__, the variable is created as an object.
 
-EX:
+Example:
 
 ````js
 var x = new String(); // Declares x as a String object
@@ -647,7 +647,7 @@ __Why Not?__
 1. Slow down execution speed
 2. Complicate your code. This can produce some unexpected results.
 
-EX:
+Example:
 
 ````js
 // EX1: comparing a primitive string and a string object
@@ -670,7 +670,7 @@ console.log(s1===s2); // false (because s1 and s2 are different objects)
 
 ---
 
-## Methods and properties are available to Primitive
+## Methods and Properties Are Available to Primitive
 
 * Primitive values (like "John Doe") __cannot__ have properties or methods (because they are not objects).
 * But with JavaScript, __methods and properties are also available to primitive values__
@@ -689,7 +689,7 @@ Ref: [ [筆記] 談談JavaScript中by reference和by value的重要觀念](https
 2. 各種 Data Type 的行為：
 
    1. null 的行為和 Primitive(string, number, boolean, undefined) 一樣都是 by Value (等於是 copy 一份到新盒子)
-   2. Object (包含 Array) 的行為是 by Reference，object literal 例子用盒子方式去想就不會搞錯，literal 部分是另劃出一塊 address 再塞進盒子裡
+   2. Object (包含 Array) 的行為是 by Reference，object literal 例子用盒子方式去想就不會搞錯，literal 部分是另劃出一塊 address，也就是產生新盒子
    3. Function 理論上可能 by Reference，但因為似乎沒辦法像修改 Object 屬性那樣去操縱 Function 的實體，所以展現出來的效果像 by Value
    4. 傳入 Function 的參數，運作上和各 Data Type 原本行為一樣，Object 會有連動關係。但要記得 paramters 等於是新盒子，所以如果有做了相當於 "new" 的動作 (例如 literal 設值)，就跟舊盒子沒關係了 (trial 10)
 
@@ -722,11 +722,11 @@ function printToScreen(wording, val){
 //--- trial 1: string (by value)
 var str1 = "111";
 var str2 = str1;
-printToScreen("str1", str1);	//str1=111
-printToScreen("str2", str2);	//str2=111
+printToScreen("str1", str1);	//str1="111"
+printToScreen("str2", str2);	//str2="111"
 str1 = "222";
-printToScreen("str1", str1);	//str1=222
-printToScreen("str2", str2);	//str2=111
+printToScreen("str1", str1);	//str1="222"
+printToScreen("str2", str2);	//str2="111"
 
 //--- trial 2: null (by value)
 var n1 = null;
@@ -734,7 +734,7 @@ var n2 = n1;
 printToScreen("n1", n1);		//n1=null
 printToScreen("n2", n2);		//n2=null
 n1 = "something";
-printToScreen("n1", n1);		//n1=something
+printToScreen("n1", n1);		//n1="something"
 printToScreen("n2", n2);		//n2=null
 
 //--- trial 3: undefined (by value)
@@ -743,44 +743,44 @@ var ud2 = ud1;
 printToScreen("ud1", ud1);		//ud1=undefined
 printToScreen("ud2", ud2);		//ud2=undefined
 ud1 = "something";
-printToScreen("ud1", ud1);		//ud1=something
+printToScreen("ud1", ud1);		//ud1="something"
 printToScreen("ud2", ud2);		//ud2=undefined
 
 //--- trial 4: array (by reference)
 var ary1 = ["111"];
 var ary2 = ary1;
-printToScreen("ary1", ary1[0]);	//ary1=111
-printToScreen("ary2", ary2[0]);	//ary2=111
+printToScreen("ary1", ary1[0]);	//ary1[0]="111"
+printToScreen("ary2", ary2[0]);	//ary2[0]="111"
 ary1[0] = "222";
-printToScreen("ary1", ary1[0]);	//ary1=222
-printToScreen("ary2", ary2[0]);	//ary2=222
+printToScreen("ary1", ary1[0]);	//ary1[0]="222"
+printToScreen("ary2", ary2[0]);	//ary2[0]="222"
 
 //--- trial 5: array literal (re-allocate)
 var ary1 = ["111"];
 var ary2 = ary1;
-printToScreen("ary1", ary1[0]);	//ary1=111
-printToScreen("ary2", ary2[0]);	//ary2=111
+printToScreen("ary1", ary1[0]);	//ary1[0]="111"
+printToScreen("ary2", ary2[0]);	//ary2[0]="111"
 ary1 = ["222"];
-printToScreen("ary1", ary1[0]);	//ary1=222
-printToScreen("ary2", ary2[0]);	//ary2=111
+printToScreen("ary1", ary1[0]);	//ary1[0]="222"
+printToScreen("ary2", ary2[0]);	//ary2[0]="111"
 
 //--- trial 6: object (by reference)
 var person1 = { name:"111"};
 var person2 = person1;
-printToScreen("person1", person1.name);	//person1=111
-printToScreen("person2", person2.name);	//person2=111
+printToScreen("person1", person1.name);	//person1..name="111"
+printToScreen("person2", person2.name);	//person2..name="111"
 person1.name = "222";
-printToScreen("person1", person1.name);	//person1=222
-printToScreen("person2", person2.name);	//person2=222
+printToScreen("person1", person1.name);	//person1.name="222"
+printToScreen("person2", person2.name);	//person2.name="222"
 
 //--- trial 7: object literal (re-allocate)
 var person1 = { name:"111"};
 var person2 = person1;
-printToScreen("person1", person1.name);	//person1=111
-printToScreen("person2", person2.name);	//person2=111
+printToScreen("person1", person1.name);	//person1.name="111"
+printToScreen("person2", person2.name);	//person2.name="111"
 person1 = { name: "222"};
-printToScreen("person1", person1.name);	//person1=222
-printToScreen("person2", person2.name);	//person2=111
+printToScreen("person1", person1.name);	//person1.name="222"
+printToScreen("person2", person2.name);	//person2.name="111"
 
 //--- trial 8: function literal 1
 function func1(){ return "111"; }

@@ -45,16 +45,16 @@
 
 ----
 
-## 想解決的 Situations
+## Before Using Closure: 想解決的 Scenarios
 
 ````js
-// situation 1: global var 大家都能存取，無法限制必須透過 setAge()
+// Scenario 1: Global var 大家都能存取，無法限制必須透過 setAge()
 var age = 18;
 function setAge(a){
   age = a;
 }
 
-// situation 2: 必須透過 setAge()，但age無法持續保留
+// Scenario 2: 必須透過 setAge() 存取 -> 但 age 無法持續保留
 function setAge(a){
   var age = 18;
   age = a;
@@ -99,7 +99,7 @@ console.log(add());
 
 ----
 
-## Example 2: Basic Closure
+## Example 2: Basic Closure II
 
 **Example Explained:**
 
@@ -130,23 +130,23 @@ myFunc(); // azole
 function newPersonObj(){
 	var name = "John";
 	var methods = {
-		getName: function(){ return name; },
-	    setName: function(n){ name=n; },
-	    toString: function(){ return "name is " + name; }
+	  getName: function() { return name; },
+	  setName: function(n) { name = n; },
+	  toString: function() { return "name is " + name; }
 	}
 	return methods;
 }
 
 var p1 = newPersonObj();
-console.log(p1.getName());      	// "John"
-console.log(p1.setName('Andrew'));  // undefined (because of no return)
-console.log(p1.getName());      	// "Andrew"
-console.log(p1.toString());     	// "name is Andrew"
-console.log(p1);     				// "{getName: ƒ, setName: ƒ, toString: ƒ}"
+console.log(p1.getName());            // "John"
+console.log(p1.setName('Andrew'));    // undefined (because of no return)
+console.log(p1.getName());            // "Andrew"
+console.log(p1.toString());           // "name is Andrew"
+console.log(p1);                      // "{getName: ƒ, setName: ƒ, toString: ƒ}"
 
 var p2 = newPersonObj();
-console.log(p1.getName());      // "Andrew"
-console.log(p2.getName());      // "John"
+console.log(p1.getName());            // "Andrew"
+console.log(p2.getName());            // "John"
 ````
 
 

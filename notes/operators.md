@@ -21,17 +21,16 @@
 | --       | Decrement 遞減     |
 | **       | Exponentiation   |
 
-> The **= operator is an experimental part of the ECMAScript 2016 proposal (ES7). It is not stable across browsers. Do not use it.
 
 
 
 ### Numeric Strings 的運算
 
 * 如果對字串型態進行運算，JavaScript 會嘗試轉型成數字去做算術運算
-* 但如果是加號 (+)，會被當作是 concat
+* 但如果是加號 (+)，會被當作是 concat 運算子
 
 
-EX:
+Example:
 
 ````js
 //Numeric Strings
@@ -51,6 +50,8 @@ console.log( "Hello" - "Dolly" );   // NaN
 > `cnt++`: 執行該行後才進行++
 >
 > `++cnt`: 執行該行前先進行++
+
+Example:
 
 ```js
 var cnt = 0;
@@ -91,14 +92,18 @@ Assign values to JavaScript variables. (和一般語言用法一樣)
 | %=                 | same as "x = x % y" |
 | <<=, &=, **=, etc. |                     |
 
+
+> The **= operator is an experimental part of the ECMAScript 2016 proposal (ES7). It is not stable across browsers. Do not use it.
+
+
 ---
 
 ## Comparison Operators (布林運算子)
 
 ### Oerview
 
-> - 不同型態的資料進行比較，可能產生不可預期的結果
-> - 為了確保比較的結果如預期，比較前最好先轉型成適當的型態
+> * 不同型態的資料進行比較，可能產生不可預期的結果
+> * 為了確保比較的結果如預期，**比較前最好先轉型成適當的型態**
 
 | Operator | Description                       |
 | -------- | --------------------------------- |
@@ -121,39 +126,39 @@ Assign values to JavaScript variables. (和一般語言用法一樣)
 
 ### Comparing Different Types
 
-當比較字串和數字:
+當比較字串和數字：
 
 * JavaScript 會將 string 轉型成數字
-* 空字串會轉成 0.
-* 非數字的字串會轉成 `NaN` which is always false.
-* EX:
-  * "12" => 12
-  * "" => 0
-  * "John" => NaN
+* 空字串會轉成 0
+* 非數字的字串會轉成 `NaN` (which is always false, even `NaN===NaN`)
+* E.g.,
+  * `"12"` --> 12
+  * `""` --> 0
+  * `"John"` --> NaN
 
 ````js
-console.log( 2 < 12 );		// true
-console.log( 2 < "12" );	// true  (2 < 12)
-console.log( 2 < "" );		// false (2 < 0)
-console.log( 2 < "John" );	// false (2 < NaN)
-console.log( 2 > "John" );	// false (2 > NaN)
-console.log( 2 == "John" );	// false (2 == NaN)
+console.log( 2 < 12 );      // true
+console.log( 2 < "12" );    // true  (2 < 12)
+console.log( 2 < "" );      // false (2 < 0)
+console.log( 2 < "John" );  // false (2 < NaN)
+console.log( 2 > "John" );  // false (2 > NaN)
+console.log( 2 == "John" ); // false (2 == NaN)
 
-console.log( Boolean( false == 0 ) );	//true
-console.log( Boolean( false === 0 ) );	//false
-console.log( Boolean( true == 1 ) );	//true
-console.log( Boolean( true === 1 ) );	//false
-console.log( Boolean( true == 2) );		//false
+console.log( Boolean( false == 0 ) );   // true
+console.log( Boolean( false === 0 ) );  // false
+console.log( Boolean( true == 1 ) );    // true
+console.log( Boolean( true === 1 ) );   // false
+console.log( Boolean( true == 2) );     // false
 
-console.log( Boolean( null == 0) );				//false
-console.log( Boolean( undefined == 0 ) );		//false
-console.log( Boolean( null == undefined ) );		//true
-console.log( Boolean( null === undefined ) );	//false
+console.log( Boolean( null == 0) );            // false
+console.log( Boolean( undefined == 0 ) );      // false
+console.log( Boolean( null == undefined ) );   // true
+console.log( Boolean( null === undefined ) );  // false
 
-console.log( Boolean( 'John' > null ) );	//false
-console.log( Boolean( 1 > null ) );			//true
-console.log( Boolean( 0 > null ) );			//false
-console.log( Boolean( 1 > NaN ) );			//false
+console.log( Boolean( 'John' > null ) );       // false
+console.log( Boolean( 1 > null ) );            // true
+console.log( Boolean( 0 > null ) );            // false
+console.log( Boolean( 1 > NaN ) );             // false
 ````
 
 
@@ -183,7 +188,7 @@ console.log( "2" == "12" );	// false ("2" == "12")
 Example:
 
 ````js
-var x = ( 10 > 9) ? 'Good' : 'WTF';
+var x = ( 10 > 9 ) ? 'Good' : 'WTF';
 console.log(x);		// 'Good'
 ````
 
@@ -197,12 +202,12 @@ console.log(x);		// 'Good'
 
 | Operator | Description |
 | -------- | ----------- |
-| &&       | logical and |
-| \|\|     | logical or  |
-| !        | logical not |
+| &&       | and         |
+| \|\|     | or          |
+| !        | not         |
 
 
-### Comparison Operators V.S. Logical Operators
+### Comparison Operators VS. Logical Operators
 
 * Comparison Operators 和 Logical Operators 常搭配使用，但其實有別
 
@@ -222,15 +227,15 @@ console.log(x);		// 'Good'
 * Example:
 
 ````js
-false && 1 && 'hello' // false
-1 && false && 2 && 'hello' // false
-1 && 2 && 'hello' // "hello"
-1  && 2 && 'hello' && 0 // 0
+false && 1 && 'hello'        // false
+1 && false && 2 && 'hello'   // false
+1 && 2 && 'hello'            // "hello"
+1 && 2 && 'hello' && 0       // 0
 
-false || NaN || '' || undefined || null || 0 // 0
-false || 1 || 2 || 'hello' // 1
+false || NaN || '' || undefined || null || 0  // 0
+false || 1 || 2 || 'hello'                    // 1
 
-false || 1 || 'hello' && undefined || 2 && 0 // 1
+false || 1 || 'hello' && undefined || 2 && 0  // 1
 // Evaluation Process:
 // step 1: false || 1 || 'hello' && undefined || 2 && 0
 // step 2: false || 1 || undefined || 0
@@ -311,20 +316,20 @@ typeof null                   // "object"
 
 ````js
 var s = 'abc';
-console.log( typeof s );				// "string"
-console.log( s instanceof String );		// false
+console.log( typeof s );              // "string"
+console.log( s instanceof String );   // false
 
 var s2 = new String('abc');
-console.log( typeof s2 );				// "object"
-console.log( s2 instanceof String );	// true
+console.log( typeof s2 );             // "object"
+console.log( s2 instanceof String );  // true
 
 var x = 1;
-console.log( typeof x );				// "number"
-console.log( x instanceof Number );		// false
-console.log( x instanceof Array );		// false
+console.log( typeof x );              // "number"
+console.log( x instanceof Number );	  // false
+console.log( x instanceof Array );    // false
 
 var ary = ['Apple', 'Banana', 'Cake'];
-console.log( ary instanceof Array );	// true
+console.log( ary instanceof Array );  // true
 ````
 
 
@@ -361,13 +366,13 @@ Ref: [delete operator - JavaScript | MDN](https://developer.mozilla.org/en-US/do
 
 1. `delete` operator 可以用來移除變數，有回傳值，回傳是否移除成功
 2. `delete` 根據移除變數對象的型別不同，有不同結果：
-  * number: N
-  * string: Y (會移除掉整個宣告，變成一個為定義的變數)
-  * array: N
-  * an element from an array: Y (移除的元素 index 不會被填補，會變成 empty，也就是 undefined)
-  * object: N
-  * a property from an object: Y (無論該 property 是否存在，都會回傳 true)
-  * function: N (無論是 declaration 或 expression)
+    * number: N
+    * string: Y (會移除掉整個宣告，變成一個為定義的變數)
+    * array: N
+    * an element from an array: Y (移除的元素 index 不會被填補，會變成 empty，也就是 undefined)
+    * object: N
+    * a property from an object: Y (無論該 property 是否存在，都會回傳 true)
+    * function: N (無論是 declaration 或 expression)
 
 
 
@@ -446,16 +451,13 @@ console.log(ret);                         //  false
 
 * E.g. 按照數學慣例，先乘除後加減
 
-EX:
-
 ````js
-var x = 100 + 50 * 3; //250
-var x = (100 + 50) * 3; //450
+var x = 100 + 50 * 3;    // 250
+var x = (100 + 50) * 3;  // 450
 ````
 
 
 
 * JavaScript Operator Precedence Values (JavaScript 裡所有運算子的優先值高低和舉例)
-
-EX: 最高為 "( )"，優先值為19; (*)(/) 是14，(+)(-)是13
-完整表參考: http://www.w3schools.com/js/js_arithmetic.asp
+  * E.g., 最高為 `(` `)`，優先值為 19; `*` `/` 是 14，`+` `-` 是 13
+  * [完整表參考](http://www.w3schools.com/js/js_arithmetic.asp)

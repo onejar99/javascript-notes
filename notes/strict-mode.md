@@ -5,21 +5,23 @@
 ## What's Strict Mode
 
 1. purpose
-  * to indicate that the code should be executed in *strict mode*.
-  * With *strict mode*, you can not, for example, use undeclared variables.
+    * to indicate that the code should be executed in *strict mode*.
+    * With *strict mode*, you can not, for example, use undeclared variables.
 
 2. supported env
-  * is new in JavaScript 1.8.5 (ECMAScript version 5).
-  * not a statement, but a literal expression, ignored by earlier versions of JavaScript.
-  * All modern browsers support running JavaScript in "Strict Mode".
+    * is new in JavaScript 1.8.5 (ECMAScript version 5).
+    * not a statement, but a literal expression, ignored by earlier versions of JavaScript.
+    * All modern browsers support running JavaScript in "Strict Mode".
 
 3. Why need
-  * makes it easier to write "secure" JavaScript.
-  * Strict mode changes previously accepted "bad syntax" into real errors.
-  * ex1: mistyping a variable name creates a new global variable. In strict mode, this will throw an error.
-  * ex2:
-    In normal JavaScript, a developer will not receive any error feedback assigning values to non-writable properties.
-    In strict mode, any assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object, will throw an error.
+    * makes it easier to write "secure" JavaScript.
+    * Strict mode changes previously accepted "bad syntax" into real errors.
+    * Example 1:
+      * mistyping a variable name creates a new global variable.
+      * In strict mode, this will throw an error.
+    * Example 2:
+      * In normal JavaScript, a developer will not receive any error feedback assigning values to non-writable properties.
+      * In strict mode, any assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object, will throw an error.
 
 
 ----
@@ -38,11 +40,11 @@ With strict mode, you can **NOT** :
   * cannot write to a read-only property of objects
   * cannot write to a get-only property
   * cannot delete an undeletable property (`delete Object.prototype;`)
-  * cannot use the string "eval"/"arguments" as a variable (`var eval = 3.14;`)
+  * cannot use the string `eval` / `arguments` as a variable (`var eval = 3.14;`)
   * cannot use future reserved keywords as variables (e.g. public, static, interface, implements)
-  * cannot use the with statement (`with (Math){x = cos(2)};`)
-  * cannot use eval() create variables in the scope from which it was called (for security reasons)
-  * In function calls like f(), the this value was the global object. In strict mode, it is now undefined.
+  * cannot use the `with` statement (`with (Math){x = cos(2)};`)
+  * cannot use `eval()` create variables in the scope from which it was called (for security reasons)
+  * In function calls like f(), the `this` value was the global object. In strict mode, it is now undefined.
 
 With strict mode, still allowed:
   * re-declare variables

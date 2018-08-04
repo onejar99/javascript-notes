@@ -109,15 +109,16 @@ Modifiers can be used to perform case-insensitive more global searches:
 
 
 
-### Metacharacters `\d``\s``\uxxx`
+### Metacharacters `\d`, `\s`, `\uxxx`
 
 > are characters with a special meaning:
 
-Metacharacter Description
-\d  Find a digit
-\s  Find a whitespace character
-\b  Find a match at the beginning or at the end of a word
-\uxxxx  Find the Unicode character specified by the hexadecimal number xxxx
+| Metacharacter   | Description                                                         |
+| --------------- | ------------------------------------------------------------------- |
+| \d              | Find a digit                                                        |
+| \s              | Find a whitespace character                                         |
+| \b              | Find a match at the beginning or at the end of a word               |
+| \uxxxx          | Find the Unicode character specified by the hexadecimal number xxxx |
 
 
 
@@ -125,10 +126,11 @@ Metacharacter Description
 
 > define quantities:
 
-Quantifier  Description
-n+  Matches any string that contains at least one n
-n*  Matches any string that contains zero or more occurrences of n
-n?  Matches any string that contains zero or one occurrences of n
+| Quantifier   | Description                                                    |
+| ------------ | -------------------------------------------------------------- |
+| n+           | Matches any string that contains at least one n                |
+| n*           | Matches any string that contains zero or more occurrences of n |
+| n?           | Matches any string that contains zero or one occurrences of n  |
 
 
 
@@ -140,10 +142,10 @@ In JavaScript, the **RegExp object** is a regular expression object with predefi
 
 ````js
 var patt = /orig/i;
-console.log( typeof patt );     // "object"
-console.log( patt );        // /orig/i
+console.log( typeof patt );       // "object"
+console.log( patt );              // /orig/i
 console.log( patt.toString() );   // "/orig/i"
-console.log( patt.constructor );  //ƒ RegExp() { [native code] }
+console.log( patt.constructor );  // ƒ RegExp() { [native code] }
 ````
 
 
@@ -151,16 +153,16 @@ console.log( patt.constructor );  //ƒ RegExp() { [native code] }
 
 ## test()
 
-The `test()` method is a RegExp expression method.
-It searches a string for a pattern, and returns true or false, depending on the result.
+* The `test()` method is a RegExp expression method.
+* It searches a string for a pattern, and returns `true` or `false`, depending on the result.
 
 ````js
-console.log( /best/.test("The best things in life are free!") ); //true
+console.log( /best/.test("The best things in life are free!") ); // true
 
 var patt = /orig/i;
 console.log( patt.test('Orig') );   // true
 console.log( patt.test('orig') );   // true
-console.log( patt.test('new') );  // false
+console.log( patt.test('new') );    // false
 ````
 
 
@@ -168,17 +170,19 @@ console.log( patt.test('new') );  // false
 
 ## exec()
 
-The `exec()` method is a RegExp expression method.
-It searches a string for a specified pattern, and returns the found text.
-If no match is found, it returns null.
+* The `exec()` method is a RegExp expression method.
+* It searches a string for a specified pattern, and returns the found text.
+* If no match is found, it returns `null`.
 
 ````js
+console.log( /cde/.exec("abcdefghcde") );              // ["cde", index: 2, input: "abcdefghcde", groups: undefined]
+console.log( typeof /cde/.exec("abcdefghcde") );       // "object"
+console.log( /cde/.exec("abcdefghcde").toString() );   // "cde"
+
 console.log( /best/.exec("The best things in life are free!") ); //["best", index: 4, input: "The best things in life are free!"]
 
 var patt = /orig/i;
 console.log( patt.exec('Hi Orig Orig') );   // ["Orig", index: 3, input: "Hi Orig Orig"]
 console.log( patt.exec('Hi orig orig') );   // ["orig", index: 3, input: "Hi orig orig"]
-console.log( patt.exec('Hi new') );  // null
-
-console.log( patt.exec('Orig Orig').toString() );   // "Orig"
+console.log( patt.exec('Hi new') );         // null
 ````
