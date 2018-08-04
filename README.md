@@ -2,9 +2,9 @@
 
 My notes for JavaScript.
 
-## JavaScript Basic Concept and Syntax
+## JavaScript Basic Concepts and Syntax
 
-### Basic Concept
+### Basic Concepts
 
 1. [JS Introduction](./notes/introduction.md)
 2. [JS Version](./notes/version.md)
@@ -19,7 +19,7 @@ My notes for JavaScript.
 11. [JS Loop (Iterative)](./notes/loop.md)
 
 
-### Advanced Concept
+### Advanced Concepts
 
 1. [JS Scope](./notes/scope.md)
 2. [JS This](./notes/this.md)
@@ -37,8 +37,8 @@ My notes for JavaScript.
 1. [JS JSON](./notes/json.md)
 2. [JS Ajax](./notes/ajax.md)
 3. [JS Others](./notes/others.md)
-4. [JS Browser Object Model (BOM)](./notes/bom.md)
-5. [JS Document Object Model (DOM)](./notes/dom.md)
+4. [JS BOM (Browser Object Model)](./notes/bom.md)
+5. [JS DOM (Document Object Model)](./notes/dom.md)
 
 
 ### Coding Guide

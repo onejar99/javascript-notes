@@ -510,9 +510,9 @@ var car = {type:"Fiat", model:"500", color:"white"}; //property(e.g.type), prope
 
 ### 5. Constructor Property
 
-The **constructor property** returns the **constructor function** for all JavaScript variables.
+The **constructor property** returns the **constructor function** for all JavaScript variables.    
 
-​````js
+````js
 console.log("John".constructor);                // Returns function String()  {[native code]}
 console.log((3.14).constructor);                // Returns function Number()  {[native code]}
 console.log(false.constructor);                 // Returns function Boolean() {[native code]}

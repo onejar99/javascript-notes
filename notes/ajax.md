@@ -46,7 +46,7 @@
 
 ## How AJAX Works
 
-![](../../figures/w3schools_ajax.gif)
+![](../figures/w3schools_ajax.gif)
 
 Figure source: [w3schools](https://www.w3schools.com/js/js_ajax_intro.asp)
 
@@ -149,7 +149,7 @@ Ref: [跨來源資源共享（CORS）| MDN](https://developer.mozilla.org/zh-TW/
   * 現代瀏覽器支援在 API 容器（如 XMLHttpRequest 或 Fetch）中使用 CORS，以降低跨來源 HTTP 請求的風險。
 
 
-> Another solution: [JS JSON - JSONP](../notes/json.md)
+> Another solution: [JS JSON - JSONP](../notes/json.md#jsonp)
 
 
 
