@@ -1,3 +1,6 @@
+> ## ⚠ Deprecation:
+> This note has been migrated to [another repository](https://github.com/onejar99/notes-box) and building as [a book](https://books.onejar99.com/notes-box/javascript-notes/).
+
 # JavaScript Notes
 
 My notes for JavaScript.
